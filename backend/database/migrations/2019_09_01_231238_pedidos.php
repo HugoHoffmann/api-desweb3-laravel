@@ -13,7 +13,12 @@ class Pedidos extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('pedidos', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('pedido');
+            $table->integer('quantidade');
+            $table->timestamps();            
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Pedidos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('pedidos');
     }
 }

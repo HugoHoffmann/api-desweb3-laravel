@@ -13,7 +13,11 @@ class Categorias extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('nome');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class Categorias extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('categorias');
     }
 }
