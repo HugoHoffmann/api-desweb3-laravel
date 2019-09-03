@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Vendas extends Migration
+class CreateCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class Vendas extends Migration
      */
     public function up()
     {
-        Schema::create('vendas', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nome');
-            $table->integer('pedido_usuario_id')->unsigned();
+            $table->string('nome', 50);
             $table->timestamps();
-
-            $table->foreign('pedido_usuario_id')
-                ->references('id')
-                ->on('pedido_usuario');
         });
     }
 
@@ -32,6 +27,6 @@ class Vendas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vendas');
+        Schema::dropIfExists('categorias');
     }
 }

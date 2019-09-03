@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Pedidos extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class Pedidos extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('pedido');
-            $table->integer('quantidade');
-            $table->timestamps();            
-        });
+      Schema::create('pedidos', function (Blueprint $table) {
+        $table->uuid('id')->primary();
+        $table->uuid('usuario_id')->unsigned();
+        $table->foreign('usuario_id')->references('id')->on('usuarios');
+        $table->decimal('desconto', 5, 2);
+        $table->timestamps();
+      });
     }
 
     /**

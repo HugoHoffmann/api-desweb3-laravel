@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Calcados extends Migration
+class CreateCalcadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class Calcados extends Migration
      */
     public function up()
     {
-        Schema::create('calcados', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nome');
-            $table->integer('categoria_id')->unsigned();
-            $table->timestamps();
-            $table->foreign('categoria_id')
-                ->references('id')
-                ->on('categorias');
-        });
+      Schema::create('calcados', function (Blueprint $table) {
+          $table->uuid('id')->primary();
+          $table->string('nome', 50);
+          $table->uuid('categoria_id')->unsigned();
+          $table->foreign('categoria_id')->references('id')->on('categorias');
+          $table->decimal('preco', 10, 2);
+          $table->timestamps();
+      });
     }
 
     /**
