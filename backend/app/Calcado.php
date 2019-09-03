@@ -4,15 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Categoria extends Model
+class Calcado extends Model
 {
     use \App\Traits\UsesUuid;
 
     protected $fillable = [
-      'nome'
+      'nome',
+      'preco',
     ];
 
-    public function calcados() {
-      return $this->hasMany('App\Calcado');
+    public function categoria() {
+      return $this->belongsTo('App\Categoria');
     }
 }

@@ -19,7 +19,7 @@ class CategoriaController extends Controller
     }
 
     public function show(Categoria $categoria) {
-      return $categoria;
+      return response()->json($categoria);
     }
 
     public function update(Request $request, Categoria $categoria) {
