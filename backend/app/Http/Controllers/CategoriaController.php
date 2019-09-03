@@ -11,7 +11,8 @@ class CategoriaController extends Controller
       return Categoria::all();
     }
 
-    public function store(Categoria $categoria) {
+    public function store(Request $request) {
+      $categoria = new Categoria($request->all());
       $categoria->save();
 
       return response()->status(200)->json($categoria);

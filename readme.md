@@ -4,7 +4,7 @@
 
 1. Clone repository
 
-2. Install packages: `cd /backend && composer install`
+2. Install packages: `cd backend/ && composer install`
 
 3. Setup `.env`, like this:
 ```
