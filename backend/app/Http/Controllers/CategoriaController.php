@@ -15,7 +15,7 @@ class CategoriaController extends Controller
       $categoria = new Categoria($request->all());
       $categoria->save();
 
-      return response()->status(200)->json($categoria);
+      return response()->json($categoria->toArray(), 200);
     }
 
     public function show(Categoria $categoria) {
@@ -25,12 +25,12 @@ class CategoriaController extends Controller
     public function update(Request $request, Categoria $categoria) {
       $categoria->update($request->all());
 
-      return response()->status(200)->json($categoria);
+      return response()->json($categoria, 200);
     }
 
     public function delete(Categoria $categoria) {
       $categoria->delete();
 
-      return response()->status(204);
+      return response('', 204);
     }
 }
