@@ -22,8 +22,8 @@ class CategoriaController extends Controller
       return $categoria;
     }
 
-    public function update(Categoria $categoria) {
-      $categoria->update();
+    public function update(Request $request, Categoria $categoria) {
+      $categoria->update($request->all());
 
       return response()->status(200)->json($categoria);
     }
