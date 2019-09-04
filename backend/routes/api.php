@@ -28,5 +28,4 @@ Route::group([
  });
 
 
-Route::post('usuarios', 'UsuarioController@store');
-Route::get('usuarios', 'UsuarioController@index');
+ Route::apiResource('usuarios', 'UsuarioController');
