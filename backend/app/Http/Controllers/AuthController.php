@@ -22,7 +22,7 @@ use JWTAuth;
             return response()->json(['error' => 'Não autorizado'], 401);
         }
         // return response()->json(auth()->attempt($credentials));
-        return $this->respondWithToken($credentials);
+        return $this->respondWithToken($token);
     }
   
     /**
