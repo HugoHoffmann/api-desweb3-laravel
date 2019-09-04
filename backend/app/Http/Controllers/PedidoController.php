@@ -3,32 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Usuario, Pedido};
+use App\{Pedido, Usuario};
 
 class PedidoController extends Controller
 {
-  public function index(Pedido $pedido) {
-    return response()->json($pedido->usuarios);
+  public function index(Usuario $usuario) {
+    return response()->json($usuario->pedidos);
   }
 
-  public function store(Request $request, Pedido $pedido) {
-    $usuario = $pedido->usuarios()->create($request->all());
-
+  public function store(Request $request, Usuario $usuario) {
+    $pedido = $usuario->pedidos()->create($request->all());
     return response()->json($usuario->toArray(), 200);
   }
 
-  public function show(Pedido $pedido, Usuario $usuario) {
-    return $pedido->usuarios()->find($usuario);
+  public function show(Usuario $usuario, Pedido $pedido) {
+    return $usuario->calcados()->find($pedido);
   }
 
-  public function update(Request $request, Pedido $pedido, Usuario $usuario) {
-    $usuario = $pedido->usuarios()->update($request->all());
+  public function update(Request $request, Usuario $usuario, Pedido $pedido) {
+    $pedido = $usuario->pedidos()->update($request->all());
 
-    return response()->json($usuario, 200);
+    return response()->json($pedido, 200);
   }
 
-  public function delete(Pedido $usuario) {
-    $usuario->delete();
+  public function delete(Pedido $pedido) {
+    $pedido->delete();
 
     return response('', 204);
   }
