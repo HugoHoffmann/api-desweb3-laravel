@@ -15,6 +15,14 @@ Route::post('/categorias/{categoria}/calcados', 'CalcadoController@store');
 Route::patch('/categorias/{categoria}/calcados/{calcado}', 'CalcadoController@update');
 Route::delete('/categorias/{categoria}/calcados/{calcado}', 'CalcadoController@delete');
 
+
+// PedidoController
+Route::get('/usuarios/{usuario}/pedidos', 'PedidoController@index');
+Route::get('/usuarios/{usuario}/pedidos/{pedido}', 'PedidoController@show');
+Route::post('/usuarios/{usuario}/pedidos', 'PedidoController@store');
+Route::patch('/usuarios/{usuario}/pedidos/{pedido}', 'PedidoController@update');
+Route::delete('/usuarios/{usuario}/pedidos/{pedido}', 'PedidoController@delete');
+
 Route::group([
  
     'middleware' => 'api',
