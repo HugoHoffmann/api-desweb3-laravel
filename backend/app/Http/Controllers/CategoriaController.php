@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Categoria;
 
+// @TODO: limitar para apenas usuário admin poder adicionar, alterar ou deletar, mas qualquer um, mesmo não autenticado pode visualizar
 class CategoriaController extends Controller
 {
     public function index() {

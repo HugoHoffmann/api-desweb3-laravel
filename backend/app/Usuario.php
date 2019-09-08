@@ -11,29 +11,14 @@ class Usuario extends Authenticatable implements JWTSubject
 {
     use \App\Traits\UsesUuid;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'nome', 'email', 'senha'
     ];
 
-     /**
-    * Get the identifier that will be stored in the subject claim of the JWT.
-    *
-    * @return mixed
-    */
     public function getJWTIdentifier(){
        return $this->getKey();
     }
  
-    /**
-        * Return a key value array, containing any custom claims to be added to the JWT.
-        *
-        * @return array
-        */
     public function getJWTCustomClaims(){
         return [];
     }
@@ -44,5 +29,8 @@ class Usuario extends Authenticatable implements JWTSubject
         }
     }
 
-
+    public function pedidos()
+    {
+        return $this->hasMany('App\Pedido', 'usuario_id', 'id');
+    }
 }
