@@ -17,7 +17,7 @@ class PedidoCalcadoController extends Controller
 
     foreach ($calcados as $calcado) {
       if (!Calcado::find($calcado['id'])) continue;
-      
+
       $pedidoCalcado = new PedidoCalcado([
         'quantidade' => $calcado['quantidade'] ?? 1,
       ]);
@@ -28,17 +28,30 @@ class PedidoCalcadoController extends Controller
       $pedidoCalcado->save();
     }
 
-    return response()->json($pedido->calcados->toArray(), 200);
+    return response()->json(PedidoCalcado::where('pedido_id', $pedido->id)->get(), 200);
   }
 
   public function show(Pedido $pedido, Calcado $calcado) {
-    return $pedido->calcados()->find($calcado);
+    return $pedido->calcados()->find(
+      PedidoCalcado::where([
+        ['pedido_id', $pedido->id],
+        ['calcado_id', $calcado->id]
+      ])->get());
   }
 
   // @TODO: fix
   public function delete(Request $request, Pedido $pedido) {
-    $pedido->calcados()->detach($request->get('calcados'));
+    $calcados = $request->get('calcados-id');
 
-    return response()->json($pedido->calcados->toArray(), 200);
+    foreach ($calcados as $calcado) {
+      $pedidoCalcado = PedidoCalcado::where([
+        ['pedido_id', $pedido->id],
+        ['calcado_id', $calcado]
+      ])
+
+      $pedidoCalcado->delete();
+    }
+
+    return response()->json(PedidoCalcado::where('pedido_id', $pedido->id)->get(), 200);
   }
 }

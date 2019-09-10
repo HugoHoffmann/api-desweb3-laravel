@@ -2,22 +2,18 @@
 
 use Illuminate\Http\Request;
 
-Route::group(
-    ['middleware' => 'api',],
-    function ($router) {
-        Route::post('login', 'AuthController@login');
-        Route::post('logout', 'AuthController@logout');
-        Route::post('refresh', 'AuthController@refresh');
-        Route::post('me', 'AuthController@me');
-    }
-);
+// Autenticação
+Route::post('/login', 'AuthController@login');
+Route::post('/logout', 'AuthController@logout');
+Route::post('/refresh', 'AuthController@refresh');
+Route::post('/me', 'AuthController@me');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
 
-Route::apiResource('categorias', 'CategoriaController');
 Route::apiResource('usuarios', 'UsuarioController');
+Route::apiResource('categorias', 'CategoriaController');
 
 // CalcadoController
 Route::get('/categorias/{categoria}/calcados', 'CalcadoController@index');
