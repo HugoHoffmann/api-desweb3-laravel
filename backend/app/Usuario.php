@@ -10,6 +10,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class Usuario extends Authenticatable implements JWTSubject
 {
   use \App\Traits\UsesUuid;
+  use Notifiable;
 
   protected $fillable = [
     'nome',

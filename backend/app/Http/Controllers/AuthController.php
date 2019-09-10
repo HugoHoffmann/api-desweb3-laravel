@@ -2,15 +2,14 @@
  
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
   
 class AuthController extends Controller {
-  public function login(Request $request){
-    $credentials =  $request->only('email', 'password');
+  public function login(){
+    $credentials = request(['email', 'password']);
 
-    if ($token = auth()->attempt($credentials)) {
+    if (!$token = auth()->attempt($credentials)) {
       return response()->json(['error' => 'Não autorizado'], 401);
     }
 

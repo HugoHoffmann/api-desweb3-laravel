@@ -71,11 +71,6 @@ return [
             'model' => App\Usuario::class,
             'table' => 'usuarios',
         ],
-
-        'usuarios' => [
-            'driver' => 'database',
-            'table' => 'usuarios',
-        ],
     ],
 
     /*
