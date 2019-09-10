@@ -178,8 +178,8 @@ Cria um novo calçado de uma categoria
 Necessário enviar um JSON conforme exemplo:
 ```json
 {
-	"nome": "Bota",
-	"preco": "10.50"
+  "nome": "Bota",
+  "preco": "10.50"
 }
 ```
 <p style='color:#FF0000'>Necessário estar logado.</p>
@@ -189,8 +189,8 @@ Altera um calçado de uma categoria existente
 Necessário enviar um JSON conforme exemplo:
 ```json
 {
-	"nome": "Tamanco",
-	"preco": "100.50"
+  "nome": "Tamanco",
+  "preco": "100.50"
 }
 ```
 <p style='color:#FF0000'>Necessário estar logado.</p>
@@ -296,12 +296,12 @@ Adiciona um ou mais calçados ao pedido
 Necessário enviar um JSON conforme exemplo:
 ```json
 {
-	"calcados": [
-		{
-			"id": "ea40d7af-a471-4da1-adc6-2d37d0128856",
-			"quantidade": 1
-		}
-	]
+  "calcados": [
+    {
+      "id": "ea40d7af-a471-4da1-adc6-2d37d0128856",
+      "quantidade": 1
+    }
+  ]
 }
 ```
 <p style='color:#FF0000'>Necessário estar logado.</p>
