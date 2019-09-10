@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+Route::apiResource('usuarios', 'UsuarioController');
+
 // Autenticação
 Route::group(['prefix' => 'auth'], function () {
   Route::post('login', 'AuthController@login');
@@ -36,5 +38,3 @@ Route::group(['middleware' => ['jwt.verify'],], function () {
   Route::post('/pedidos/{pedido}/calcados/', 'PedidoCalcadoController@store');
   Route::delete('/pedidos/{pedido}/calcados/{calcado}', 'PedidoCalcadoController@delete');
 });
-
-Route::apiResource('usuarios', 'UsuarioController');
