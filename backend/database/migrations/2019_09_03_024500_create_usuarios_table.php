@@ -17,7 +17,7 @@ class CreateUsuariosTable extends Migration
         $table->uuid('id')->primary();
         $table->string('nome', 50);
         $table->string('email', 100)->unique();
-        $table->string('senha', 50);
+        $table->string('password', 200);
         $table->timestamps();
       });
     }

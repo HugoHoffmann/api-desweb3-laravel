@@ -6,13 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
-    use \App\Traits\UsesUuid;
+  use \App\Traits\UsesUuid;
 
-    protected $fillable = [
-      'desconto'
-    ];
+  protected $fillable = [
+    'desconto'
+  ];
 
-    public function usuario() {
-      return $this->hasMany('App\Usuario');
-    }
+  public function usuario() {
+    return $this->hasMany('App\Usuario');
+  }
+
+  public function calcados() {
+    return $this->hasMany('App\PedidoCalcado');
+  }
 }

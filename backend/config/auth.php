@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'api',
-        'senha' => 'usuarios',
+        'passwords' => 'usuarios',
     ],
 
     /*
@@ -71,11 +71,6 @@ return [
             'model' => App\Usuario::class,
             'table' => 'usuarios',
         ],
-
-        'usuarios' => [
-            'driver' => 'database',
-            'table' => 'usuarios',
-        ],
     ],
 
     /*
@@ -93,7 +88,7 @@ return [
     |
     */
 
-    'senha' => [
+    'password' => [
         'usuarios' => [
             'provider' => 'usuarios',
             'table' => 'usuarios',
