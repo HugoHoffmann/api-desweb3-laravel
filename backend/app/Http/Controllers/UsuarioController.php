@@ -24,11 +24,18 @@
   }
 
   public function update(Request $request, Usuario $usuario) {
-    $usuario->update($request->all());
+    if ($usuario == auth()->user()) {
+      $usuario->update($request->all());
+    }
+
     return response()->json($usuario, 200);
   }
 
   public function delete(Usuario $usuario) {
-    $usuario->delete();
+    if ($usuario == auth()->user()) {
+      $usuario->delete();
+    }
+
+    return response('', 204);
   }
  }
