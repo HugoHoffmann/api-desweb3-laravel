@@ -38,8 +38,7 @@ class PedidoCalcadoController extends Controller
         ['calcado_id', $calcado->id]
       ])->get());
   }
-
-  // @TODO: fix
+  
   public function delete(Request $request, Pedido $pedido) {
     $calcados = $request->get('calcados-id');
 
@@ -47,7 +46,7 @@ class PedidoCalcadoController extends Controller
       $pedidoCalcado = PedidoCalcado::where([
         ['pedido_id', $pedido->id],
         ['calcado_id', $calcado]
-      ])
+      ]);
 
       $pedidoCalcado->delete();
     }

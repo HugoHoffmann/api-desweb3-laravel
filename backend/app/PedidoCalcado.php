@@ -14,10 +14,10 @@ class PedidoCalcado extends Model
   ];
 
   public function calcado() {
-    return $this->has('App\Calcado');
+    return $this->belongsTo('App\Calcado');
   }
   
   public function pedido() {
-    return $this->has('App\Pedido');
+    return $this->belongsTo('App\Pedido');
   }
 }

@@ -17,6 +17,6 @@ class Pedido extends Model
   }
 
   public function calcados() {
-    return $this->belongsToMany('App\PedidoCalcado');
+    return $this->hasMany('App\PedidoCalcado');
   }
 }
