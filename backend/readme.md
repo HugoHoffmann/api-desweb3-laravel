@@ -1,5 +1,14 @@
 # Documentação da API
 
+1. Deve ser criado um usuário
+2. O usuário precisa fazer login
+3. Utilizando o token retornado no login devem ser executados os próximos passos
+4. Criar:
+   1. Categorias
+   2. Calçados
+   3. Pedidos
+   4. PedidosCalcados
+
 ## Auth
 
 ### POST `/api/auth/login`
