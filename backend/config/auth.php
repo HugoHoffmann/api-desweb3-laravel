@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'api',
-        'senha' => 'usuarios',
+        'passwords' => 'usuarios',
     ],
 
     /*
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'senha' => [
+    'password' => [
         'usuarios' => [
             'provider' => 'usuarios',
             'table' => 'usuarios',

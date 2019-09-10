@@ -14,7 +14,7 @@ class Usuario extends Authenticatable implements JWTSubject
   protected $fillable = [
     'nome',
     'email',
-    'senha'
+    'password'
   ];
 
   public function getJWTIdentifier(){
@@ -25,9 +25,9 @@ class Usuario extends Authenticatable implements JWTSubject
     return [];
   }
   
-  public function setSenhaAttribute($senha){
-    if (!empty($senha)) {
-      $this->attributes['senha'] = bcrypt($senha);
+  public function setPasswordAttribute($password){
+    if (!empty($password)) {
+      $this->attributes['password'] = bcrypt($password);
     }
   }
 

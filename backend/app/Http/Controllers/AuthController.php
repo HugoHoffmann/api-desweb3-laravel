@@ -3,20 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use JWTFactory;
-use JWTAuth;
   
 class AuthController extends Controller {
   public function login(Request $request){
-    $credentials =  [
-      'email' => $request->get('email'),
-      'password' => $request->get('senha'),
-    ];
+    $credentials =  $request->only('email', 'password');
 
-    if (!$token = JWTAuth::attempt($credentials)) {
+    if ($token = auth()->attempt($credentials)) {
       return response()->json(['error' => 'Não autorizado'], 401);
     }
 
