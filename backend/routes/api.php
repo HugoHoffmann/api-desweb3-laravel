@@ -23,7 +23,6 @@ Route::group(['middleware' => ['jwt.verify'],], function () {
   Route::patch('/categorias/{categoria}/calcados/{calcado}', 'CalcadoController@update');
   Route::delete('/categorias/{categoria}/calcados/{calcado}', 'CalcadoController@delete');
 
-  // @TODO: alterar para usar o usuário do token de autenticação
   // PedidoController
   Route::get('/pedidos', 'PedidoController@index');
   Route::get('/pedidos/{pedido}', 'PedidoController@show');

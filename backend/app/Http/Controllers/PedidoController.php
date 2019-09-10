@@ -9,26 +9,27 @@ use App\{Pedido, Usuario};
 class PedidoController extends Controller
 {
   public function index() {
-    return response()->json($usuario->pedidos);
+    return response()->json(auth()->user()->pedidos);
   }
 
   public function store(Request $request) {
-    $pedido = $usuario->pedidos()->create($request->all());
-    return response()->json($usuario->toArray(), 200);
+    $pedido = auth()->user()->pedidos()->create($request->all());
+
+    return response()->json(auth()->user()->pedidos, 200);
   }
 
   public function show(Pedido $pedido) {
-    return $usuario->pedidos()->find($pedido);
+    return auth()->user()->pedidos->find($pedido);
   }
 
   public function update(Request $request, Pedido $pedido) {
-    $pedido = $usuario->pedidos()->update($request->all());
+    $pedido = auth()->user()->pedidos->find($pedido)->update($request->all());
 
     return response()->json($pedido, 200);
   }
 
   public function delete(Pedido $pedido) {
-    $pedido->delete();
+    auth()->user()->pedidos->find($pedido)->delete();
 
     return response('', 204);
   }
