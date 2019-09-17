@@ -29,7 +29,7 @@ class CategoriaController extends Controller
     return response()->json($categoria, 200);
   }
 
-  public function delete(Categoria $categoria) {
+  public function destroy(Categoria $categoria) {
     $categoria->delete();
 
     return response('', 204);

@@ -31,7 +31,7 @@
     return response()->json($usuario, 200);
   }
 
-  public function delete(Usuario $usuario) {
+  public function destroy(Usuario $usuario) {
     if ($usuario == auth()->user()) {
       $usuario->delete();
     }
