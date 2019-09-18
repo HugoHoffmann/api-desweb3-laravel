@@ -39,7 +39,7 @@ class PedidoCalcadoController extends Controller
       ])->get());
   }
   
-  public function delete(Request $request, Pedido $pedido) {
+  public function destroy(Request $request, Pedido $pedido) {
     $calcados = $request->get('calcados-id');
 
     foreach ($calcados as $calcado) {

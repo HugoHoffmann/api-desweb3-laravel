@@ -28,7 +28,7 @@ class PedidoController extends Controller
     return response()->json($pedido, 200);
   }
 
-  public function delete(Pedido $pedido) {
+  public function destroy(Pedido $pedido) {
     auth()->user()->pedidos->find($pedido)->delete();
 
     return response('', 204);
