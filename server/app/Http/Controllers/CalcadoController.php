@@ -19,7 +19,7 @@ class CalcadoController extends Controller
   }
 
   public function show(Categoria $categoria, Calcado $calcado) {
-    return $categoria->calcados()->find($calcado);
+    return $categoria->calcados()->find($calcado->id);
   }
 
   public function update(Request $request, Categoria $categoria, Calcado $calcado) {
