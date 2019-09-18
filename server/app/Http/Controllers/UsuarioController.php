@@ -34,8 +34,10 @@
   public function destroy(Usuario $usuario) {
     if ($usuario == auth()->user()) {
       $usuario->delete();
+      return response('apagado', 204);
+
     }
 
-    return response('', 204);
+    return response('precisa estar logado', 400);
   }
  }
